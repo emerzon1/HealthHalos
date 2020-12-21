@@ -20,7 +20,7 @@ app.controller("Game", ["$scope", function($scope) {
 			index: 1
 		},
 		{
-			question: "All natural foods are healthy.",
+			question: "Every all natural food is healthy.",
 			options: ["True", "False", ""],
 			addClass: "disabled",
 			func: "",
@@ -28,40 +28,40 @@ app.controller("Game", ["$scope", function($scope) {
 			index: 2
 		},
 		{
-			question: "What is the most common pairing of colors in fast food logos?",
-			options: ["Red and yellow", "Red and green", "Brown and green"],
+			question: "The color green is used by fast food restaurants in order to: ",
+			options: ["Make consumers feel tired", "Make consumers hungry", "Make consumers believe the restaurant is healthy"],
 			func: "addC()",
-			correct: "Red and yellow",
+			correct: "make consumers believe the restaurant is healthy",
 			addClass: "",
 			index: 3
 		},
 		{
-			question: "What is the most common pairing of colors in fast food logos?",
-			options: ["Red and yellow", "Red and green", "Brown and green"],
+			question: "Does lettuce on burgers or fried chichen sandwiches make them healthy?",
+			options: ["Yes", "No", ""],
 			func: "addC()",
-			correct: "Red and yellow",
-			addClass: "",
+			correct: "No",
+			addClass: "disabled",
 			index: 4
 		},
 		{
-			question: "What is the most common pairing of colors in fast food logos?",
-			options: ["Red and yellow", "Red and green", "Brown and green"],
+			question: "How can consumers avoid health halos?",
+			options: ["Become aware of the methods fast food restaurants use to trick customers", "Carefully read nutritional information instead of assuming how healthy foods are", "Both A and B"],
 			func: "addC()",
-			correct: "Red and yellow",
+			correct: "Both A and B",
 			addClass: "",
 			index: 5
 		},
 		{
-			question: "What is the most common pairing of colors in fast food logos?",
-			options: ["Red and yellow", "Red and green", "Brown and green"],
+			question: "Why is red used in many fast food restaurant logos?",
+			options: ["Red makes people hungry", "Red makes people happy", "Red makes people believe that their food is healthy"],
 			func: "addC()",
-			correct: "Red and yellow",
+			correct: "Red makes people hungry",
 			addClass: "",
 			index: 6
 		}
 	]
 	$scope.answers = [];
-	$scope.correct = ["A", "B", "B", "A", "B", "C", "A"];
+	$scope.correct = ["A", "B", "B", "C", "B", "C", "A"];
 
 	$scope.welcomeMsg = true;
 	$scope.loadGame = false;
