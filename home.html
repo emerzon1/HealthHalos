@@ -4,76 +4,86 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Recycle</title>
+	<title>Health Halos</title>
 	<meta name="description" content="EcoGame">
     <meta name="author" content="Evan Merzon">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel ="stylesheet"type="text/css"href="css/main.css">
 </head>
 <body ng-app="EcoGame">
 	
-    
-    
-    
-	<div ng-controller="Game" >
+	<div ng-controller="Game" class="content">
 		<header>
-        <h1 style="margin-top:2%;"><mark>Recycle For Our Future</mark></h1>
-        <nav>
-        <ul class="nav nav-pills  nav-justified">
-            <li role="presentation"><a href="index.html">Home</a></li>
-            <li role="presentation"><a href="home.html" class="active">Game</a></li>
-            <li role="presentation"><a href="https://www.epa.gov/recycle" target="_blank">Recycling Website</a></li>
-        </ul></nav>
-    </header>
-
+			<h1>Health Halos in Fast Food</h1>
+			<nav>
+				<ul
+					class="nav nav-tabs nav-fill"
+					style="margin-top: 4%"
+				>
+					<li class="nav-item" role="presentation">
+						<a href="index.html" class="nav-link">Home</a>
+					</li>
+					<li class="nav-item" role="presentation">
+						<a href="home.html" class="nav-link active">Quiz</a>
+					</li>
+					<li class="nav-item" role="presentation">
+						<a
+							class="nav-link"
+							href="https://docs.google.com/document/d/1GUNl36sD7sUC9AZ1L1cFIj_4wGC8jPxsIirK-lQtXNs/edit?usp=sharing"
+							target="_blank"
+							>Works Cited</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		
 		<div class="container" ng-show="welcomeMsg">
+			<div style="height: 35px;"></div>
 			<div class="jumbotron text-center" id="welcome-msg">
-				<h1><br>Recycle Right!</h1>
+				<h1><br/><br/>Health Halos in Fast Food Quiz</h1>
 				<br/>
-				<h2>Put Your Trash in the Right Bins</h2>
+				<h2>Click on the correct answer</h2>
 				<br/>
-				<p class="game-desc">Learn what goes in what bin - Great for kids!</p>
 				
 				<p><button type="button" class="btn btn-default" ng-click="startGame()" id="start-game-btn">Start game!</button></p>
 			</div>
 		</div>
 
-		<div class="container" id="game-console" ng-show="loadGame" ng-if="allItems.length !== 0">
-			<h1 class="text-center"><br>Which Bin?</h1>
+		<div class="container" id="game-console" ng-show="loadGame" ng-if="correct.length - answers.length !== 0">
+			<h1 class="text-center"><br>Health Halos</h1>
 			<br/>
 			<div class="row" id="row-items">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-					<div ng-repeat="item in allItems | limitTo:1 track by $index">
-						<h1 id="item-name">{{ item.name }}</h1>
-					</div>	
-				</div>		
-			</div>
+						<h1 id="item-name">{{ questions[current].question }}</h1>
+				</div>	
+			</div>		
 			<div class="row" id="row-bins">
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center bins"  id="compost-bin" ng-click="addCompost()">
-					<h3 class="bin-labels">Compost</h3>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center bins"  id="compost-bin" ng-click="addA()">
+					<h3 class="bin-labels">{{ questions[current].options[0] }}</h3>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center bins" id="garbage-bin" ng-click="addGarbage()">
-					<h3 class="bin-labels">Garbage</h3>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center bins" id="garbage-bin" ng-click="addB()">
+					<h3 class="bin-labels">{{ questions[current].options[1] }}</h3>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center bins" id="recycle-bin" ng-click="addRecycle()">
-					<h3 class="bin-labels">Recycle</h3>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center bins" id="recycle-bin{{ questions[current].addClass }}" ng-click="addC()">
+					<h3 class="bin-labels">{{ questions[current].options[2] }}</h3>
 				</div>
 			</div>
+			
 			<br/>
-			<h4 class="text-center">Items remaining: {{ allItems.length }}</h4>
+			<h4 class="text-center">Items remaining: {{ correct.length - answers.length }}</h4>
 		</div>
 
 		<div class="container" ng-show="isWinner">
 			<div class="jumbotron text-center" id="winner-msg">
 				<h1 id="congrats">Congrats <span class="glyphicon glyphicon-star"></span></h1>
 				<br/>
-				<h2 class="congrats-text">{{ countOfAllItems }} out of {{ countOfAllItems }} correct</h2>
-				<br/>
-				<br/>
-				<h2 class="congrats-text">You're an earth-friendly whiz!</h2>
+				<h2 class="congrats-text">{{ correctItems }} out of {{ correctItems }} correct</h2>
 				<br/>
 				<br/>
 				<p>
@@ -91,10 +101,10 @@
 			<div class="jumbotron text-center" id="not-winner-msg">
 				<h1 id="try-again">Oops <span class="glyphicon glyphicon-exclamation-sign"></span></h1>
 				<br/>
-				<h2 class="not-winner-text">{{ correctItems }} out of {{ countOfAllItems }} correct</h2>
+				<h2 class="not-winner-text">{{ correctItems }} out of {{ answers.length }} correct</h2>
 				<br/>
 				<br/>
-				<h2 class="not-winner-text">Good luck next time.  Remember, always recycle!</h2>
+				<h2 class="not-winner-text">Good luck next time.  Remember, always be aware of health halos in fast food.</h2>
 				<br/>
 				<br/>
 				<p><button type="button" class="btn btn-default" ng-click="restartGame()" id="play-again-btn">Try again</button></p>
@@ -111,18 +121,9 @@
 						<h2 class="modal-title">Answers</h4>
 					</div>
 					<div class="modal-body">
-						<h3>Compost</h3><br/>
-						<div ng-repeat="item in compostAnswers">
-							<p>{{ item.name }}</p>
+						<div ng-repeat="item in questions">
+							<p>{{ item.question }}: {{ item.correct }}</p><br/>
 						</div><br/>
-						<h3>Garbage</h3><br/>
-						<div ng-repeat="item in garbageAnswers">
-							<p>{{ item.name }}</p>
-						</div><br/>
-						<h3>Recycle</h3><br/>
-						<div ng-repeat="item in recycleAnswers">
-							<p>{{ item.name }}</p>
-						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -131,11 +132,8 @@
 			</div>
 		</div>
 	</div>
-
 	<footer>
-		<div class="container text-center" id="footer">
-			<p>By Evan Merzon</p>
-		</div>
+		<p class="footer-home">By Evan Merzon</p>
 	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -144,4 +142,4 @@
 	<script src="js/items.js"></script>
 	<script src="js/app.js"></script>
 </body>
-</html><!--credit to kathylovan for making most of game-->
+</html>

@@ -1,29 +1,67 @@
 var app = angular.module("EcoGame", []);
 
 app.controller("Game", ["$scope", function($scope) {
-	$scope.compost = [];
-	$scope.garbage = [];
-	$scope.recycle = [];
-
-	var compostItems = compost.map(function(item) {
-		return {name: item, type: "Compost"}
-	});
-
-	var garbageItems = garbage.map(function(item) {
-		return {name: item, type: "Garbage"}
-	});
-
-	var recycleItems = recycle.map(function(item) {
-		return {name: item, type: "Recycle"}
-	});
-
-	$scope.compostAnswers = compostItems;
-	$scope.garbageAnswers = garbageItems;
-	$scope.recycleAnswers = recycleItems;
-
-	$scope.allItems = randomShuffle(compostItems.concat(garbageItems, recycleItems));
-
-	$scope.countOfAllItems = $scope.allItems.length;
+	$scope.current = 0;
+	$scope.questions = [
+		{
+			question: "What is the most common pairing of colors in fast food logos?",
+			options: ["Red and yellow", "Red and green", "Brown and green"],
+			addClass: "",
+			func: "addC()",
+			correct: "Red and yellow",
+			index: 0
+		},
+		{
+			question: "Plant-based burgers are always healthier then regular burgers.",
+			options: ["True", "False", ""],
+			addClass: "disabled",
+			func: "",
+			correct: "False",
+			index: 1
+		},
+		{
+			question: "All natural foods are healthy.",
+			options: ["True", "False", ""],
+			addClass: "disabled",
+			func: "",
+			correct: "False",
+			index: 2
+		},
+		{
+			question: "What is the most common pairing of colors in fast food logos?",
+			options: ["Red and yellow", "Red and green", "Brown and green"],
+			func: "addC()",
+			correct: "Red and yellow",
+			addClass: "",
+			index: 3
+		},
+		{
+			question: "What is the most common pairing of colors in fast food logos?",
+			options: ["Red and yellow", "Red and green", "Brown and green"],
+			func: "addC()",
+			correct: "Red and yellow",
+			addClass: "",
+			index: 4
+		},
+		{
+			question: "What is the most common pairing of colors in fast food logos?",
+			options: ["Red and yellow", "Red and green", "Brown and green"],
+			func: "addC()",
+			correct: "Red and yellow",
+			addClass: "",
+			index: 5
+		},
+		{
+			question: "What is the most common pairing of colors in fast food logos?",
+			options: ["Red and yellow", "Red and green", "Brown and green"],
+			func: "addC()",
+			correct: "Red and yellow",
+			addClass: "",
+			index: 6
+		}
+	]
+	$scope.answers = [];
+	$scope.correct = ["A", "B", "B", "A", "B", "C", "A"];
 
 	$scope.welcomeMsg = true;
 	$scope.loadGame = false;
@@ -33,31 +71,19 @@ app.controller("Game", ["$scope", function($scope) {
 		$scope.loadGame = true;
 
 		$scope.checkWinner = function() {
-			if ($scope.allItems.length === 0) {
-				var checkCompost = $scope.compost.filter(function(item) {
-					return item.type === "Garbage" || item.type === "Recycle";
-				});
-
-				var checkGarbage = $scope.garbage.filter(function(item) {
-					return item.type === "Compost" || item.type === "Recycle";
-				});
-
-				var checkRecycle = $scope.recycle.filter(function(item) {
-					return item.type === "Compost" || item.type === "Garbage";
-				});
-
-				if ((checkCompost.length === 0) && (checkGarbage.length === 0) && (checkRecycle.length === 0)) {
+			if ($scope.answers.length === $scope.correct.length) {
+				let correctAnswers = 0;
+				for(let i = 0; i < $scope.answers.length; i ++){
+					if($scope.answers[i] === $scope.correct[i]){
+						correctAnswers ++;
+					}
+				}
+				if(correctAnswers === $scope.correct.length){
 					$scope.isWinner = true;
-
-				} else {
-					var allItems = $scope.countOfAllItems;
-					var incorrectItems = checkCompost.length + checkGarbage.length + checkRecycle.length;
-					$scope.correctItems = allItems - incorrectItems;
+				}
+				else {
+					$scope.correctItems = correctAnswers;
 					$scope.notWinner = true;
-
-					$scope.incorrectCompost = checkCompost;
-					$scope.incorrectGarbage = checkGarbage;
-					$scope.incorrectRecycle = checkRecycle;
 				}
 			}
 		}
@@ -70,34 +96,21 @@ app.controller("Game", ["$scope", function($scope) {
 		location.reload();
 	}
 
-	$scope.addCompost = function(compostId) {
-		var compost = $scope.allItems.splice(compostId, 1)[0];
-		$scope.compost.push(compost);
-
+	$scope.addA = function() {
+		$scope.answers.push("A");
 		$scope.checkWinner();
+		$scope.current ++;
 	};
 
-	$scope.addGarbage = function(garbageId) {
-		var garbage = $scope.allItems.splice(garbageId, 1)[0];
-		$scope.garbage.push(garbage);
-
+	$scope.addB = function() {
+		$scope.answers.push("B");
 		$scope.checkWinner();
+		$scope.current ++;
 	};
 
-	$scope.addRecycle = function(recycleId) {
-		var recycle = $scope.allItems.splice(recycleId, 1)[0];
-		$scope.recycle.push(recycle);
-
+	$scope.addC = function() {
+		$scope.answers.push("C");
 		$scope.checkWinner();
+		$scope.current ++;
 	};
 }]);
-
-function randomShuffle(array) {
-	for (var x = array.length - 1; x > 0; x--) {
-		var y = Math.floor(Math.random() * (x * 1));
-		var temp = array[x];
-		array[x] = array[y];
-		array[y] = temp;
-	}
-	return array;
-}

@@ -1,69 +1,111 @@
-header{
-	background:green;
-	background:url("https://jasa.nl/wp-content/uploads/2019/05/Onze-5-favoriete-plastic-upcycle-artikelen-2.png");
-	background-size:400px;
-	width:100%;
-	height:100%;
+header {
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-L9Hzhb9lv3DLsfz2e4C9xwsAlhAJw9-7LQ&usqp=CAU");
+    background-size: 200px;
+    width: 100%;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	display: flex;
+  flex-direction: column;
+}
+.center {
+    text-align: center;
+}
+.norm {
+    font-family: serif;
+    font-weight: normal;
+}
+header nav {
+    margin-top: 5%;
+}
+header h1 {
+    text-align: center;
+}
+header {
+    float: left;
+}
+.mid h4 {
+	margin-left: 7%;
+}
+ol {
+	margin-left: 8%;
+}
+.mid h1,
+.mid h3,
+.mid p {
+    margin-left: 5%;
+    color: black;
+}
+.mid {
+    line-height: 150%;
+    font-size: 1.2em;
+}
+#recycle-bindisabled{
+	color: grey;
+}
+/*header nav {
+    margin: 1%;
+}
 
+nav a:hover {
+    opacity: 1;
 }
-.center{
-	text-align:center;
+.active {
+    opacity: 1;
+    background: white;
 }
-.norm{
-	font-family:serif;
-	font-weight:normal;
+nav a {
+    background: white;
+    opacity: 0.7;
+} */
+.left {
+    float: left;
+    background: lightgreen;
+    width: 25%;
+	height: 100%;
+	margin-bottom: 0;
+	margin-top: 3%;
 }
-header nav{
-	margin-top:5%;
+.left img {
+    display: block;
+    width: 70%;
+    border: solid 2px green;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    margin-top: 10%;
 }
-header h1{
-	text-align:center;
+.right {
+    display: inline-block;
+    width: 70%;
 }
-header{
-	float:left;
-
+.push {
+    height: 50px;
 }
-.mid h1, .mid h3, .mid p{
-	margin-left:5%;
-	color:black;
+.footer {
+	text-align: center;
+	flex-shrink: 0;
+    background: rgb(150, 150, 150);
+	font-size: 30px;
+	margin: 0;
 }
-.mid{
-	line-height:150%;
-	font-size:1.2em;
+.footer-home {
+	text-align: center;
+	background: rgb(150, 150, 150);
+	font-size: 30px;
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 }
-header nav{
-	margin:1%;
+.content {
+    flex: 1 0 auto;
 }
-
-nav a:hover{
-	opacity:1;
-}
-.active{
-	opacity:1;
-	background:white;
-}
-
-nav a{
-	background:white;
-	opacity:0.5;
-}
-.left{
-	float:left;
-	display:inline-block;
-	background:lightgreen;
-	width:25%;
-	height:100%;
-}
-.left img{
-	display:block;
-	width:70%;
-	border:solid 2px green;
-	margin:0 auto;
-	margin-bottom:2%;
-	margin-top:2%;
-
-}
-.right{
-	display:inline-block;
-	width:70%;
+.works-cited {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 12;
+	line-height: 2;
 }

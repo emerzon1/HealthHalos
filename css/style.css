@@ -147,3 +147,9 @@ body h1, h2, h3 {
 .answers-btn {
 	font-size: 1.4em;
 }
+.green {
+	color: green !important;
+}
+.red {
+	color: red !important;
+}

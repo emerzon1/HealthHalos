@@ -1,72 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="google-site-verification" content="jKmhC_-fbnYhkvmR4x9u_AWtljjYU-76UY69_nL2Ub4" />
-    <title>Recycle</title>
-    <meta name="author" content="Evan Merzon">
-    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel ="stylesheet"type="text/css"href="css/main.css">
-    
-    
-    
-  </head>
-  <body>
-    <header>
-        <h1><mark>Recycle For Our Future</mark></h1>
-        <nav>
-        <ul class="nav nav-pills  nav-justified" style="margin-top:4%">
-            <li role="presentation"><a href="index.html" class="active">Home</a></li>
-            <li role="presentation"><a href="home.html">Game</a></li>
-            <li role="presentation"><a href="https://www.epa.gov/recycle" target="_blank">Recycling Website</a></li>
-        </ul></nav>
-    </header>
-    <section class="left">
-        
-        <iframe style="border:none;height:200px;display:block;margin-left:20%;margin-top:20px;margin-bottom:9%;"src="https://editor.p5js.org/emerzon/embed/UEjqoI1K9"></iframe>
-        <figure>
-        <img src="https://www.wftv.com/resizer/QMuwF5i_ztcNveahzTpyaUQMAxQ=/1200x675/arc-anglerfish-arc2-prod-cmg.s3.amazonaws.com/public/YGPKHQUNL4J33EAHWVMHDGBE6A.jpg" alt=""><figcaption style="text-align:center;">Recycle!</figcaption></figure>
-        <figure>
-        <img src="https://static.themoscowtimes.com/image/article_1360/f3/929914393d954fc1964cdc70611cc122.jpg" alt="">
-        <figcaption style="color:red;font-weight:bold;text-align:center">Landfills are Bad</figcaption></figure>
-        <figure>
-        <img src="https://www.tn.gov/content/dam/tn/health/documents/healthy-places/healthy-schools/HSW_school_recycling_2.png" alt=""><figcaption style="text-align:center">Recycling Guide</figcaption></figure>
-        <iframe style="border:none;height:200px;display:block;margin-left:20%;margin-top:20px;margin-bottom:9%;"src="https://editor.p5js.org/emerzon/embed/UEjqoI1K9"></iframe>
-        
-    </section>
-    <section class="right super norm mid">
-        <h1 style="color:darkblue;text-align:center;margin:0;"><br>Recycling is very important</h1>
-        <p><br>The children are our future.  They need to be educated on how important recycling is and how to recycle.</p>
-        <p>The game that you can navigate to will help educate children</p><br>
-        <h3>Why Recycle?</h3>
-        <ul style="margin-left:3%">
-            <br><li>Saves Energy</li>
-            <li>Prevents pollution by decreasing the need for new raw materials</li>
-            <li>Reduces the amount of waste in overflowing and toxic landfills</li>
-            <li>Creates jobs</li>
-        </ul>
-        <h3>We do not recycle enough!</h3><br>
-        <p>Recycling is crucial to saving our environment!  75% of American trash is recyclable, but only 30% is recycled.  We need your help!  Play my game to learn how to recycle properly, and spread the word.  Recycling saves money.  Americans throw away $11.4 billion in recyclable containers every year.  Even if you don't care about the environment, surely you care about animals.  Over 100,000 marine animals die every year due to plastic digestion and entanglement.  
-        </p>
-        <img style="margin-left:5%;"width="50%"src="https://i.pinimg.com/originals/89/73/b6/8973b6535e8849d9b3a095e9c728b116.jpg"alt="Trash island in ocean">
-        <p>Every year, 18,000,000,000 pounds of trash ends up in the ocean.  To put that in perspective, it’s enough trash to cover every foot of coastline around the world with five full trash bags of plastic.  And that's only our plastic.
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <meta
+            name="google-site-verification"
+            content="jKmhC_-fbnYhkvmR4x9u_AWtljjYU-76UY69_nL2Ub4"
+        />
+        <title>Health Halos</title>
+        <meta name="author" content="Evan Merzon" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Fjalla+One"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script>
+          $(document).ready(function(){
+            $("#myModal").modal('show');
+          });
+        </script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+    </head>
+    <body>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Welcome</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              After you learn about health halos in fast food, take the <a href="home.html">quiz</a> to test your knowledge.
+              You can also access the quiz by clicking the Quiz button on the top of the screen.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="content">
+            <header>
+                <h1>Health Halos in Fast Food</h1>
+                <nav>
+                    <ul
+                        class="nav nav-tabs nav-fill"
+                        style="margin-top: 4%"
+                    >
+                        <li class="nav-item" role="presentation">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="home.html" class="nav-link">Quiz</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a
+                                class="nav-link"
+                                href="https://docs.google.com/document/d/1GUNl36sD7sUC9AZ1L1cFIj_4wGC8jPxsIirK-lQtXNs/edit?usp=sharing"
+                                target="_blank"
+                                >Works Cited</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="left">
+                <img src="img/Subway.png" alt="Subway comparison of foods" />
+                <img
+                    src="img/McDonalds.jpg"
+                    alt="McDonalds Crispy Chicken Menu Item"
+                />
+                <img
+                    src="img/BurgerHalo.png"
+                    alt="Burger with Halo"
+                />
+                <img
+                    src="https://www.bestdesigns.co/uploads/inspiration_images/4531/990__1511456189_555_McDonald's.png" alt="McDonalds Logo"
+                />
+                <img src="https://awgsalesservices.com/wp-content/uploads/2016/04/colors-psychology.gif" alt="Red and yellow fast food restaurant logos" />
+                <img src="http://2.bp.blogspot.com/-Z_f7iKDGe0Y/T_XdqCaCHoI/AAAAAAAAAxo/p49yzNs-qw8/s1600/images-4.jpeg" alt="Health halo buzzwords" />
+                <div style="height: 600px;"></div>
+              </section>
+            <section class="right super norm mid">
+                <h2 style="color: darkblue; text-align: center; margin: 0">
+                    <br />What are Health Halos?
+                </h2>
+                <p>
+                    As defined by the Macmillan dictionary, a health halo is
+                    “the perception that a particular food is good for you even
+                    when there is little or no evidence to confirm this is
+                    true.”
+                </p>
+                <p>
+                    Health halos make unhealthy foods seem healthier, and get
+                    people to eat more of their food and spend more money. For
+                    example, fast food restaurants like McDonalds put salads on
+                    their menu in order to make their food seem healthier.  
+                </p>
+                <h3 style="color: darkblue">
+                    <br />What is the effect of health halos?
+                </h3>
 
-        <h3><br>Some Facts</h3><br>
-        <ul style="margin-left:3%;">
-            <li>Every glass bottle we recycle save enough energy to light a lightbulb for four hours!</li>
-            <li>If we recycled all our newspaper, <b>250,000,000</b> trees would be saved a year.</li>
-            <li>Americans use <em>2,500,000</em> plastic bottles every hour and most of them are thrown away.</li>
-            <li>For more facts, go to <a href="https://www.recycling-revolution.com/recycling-facts.html">this website.</a>
-        </li></ul>
-
-        <p>By Evan Merzon</p>
-    </section>
-  </body>
+                <p>
+                    Subway advertises its food as being fresh. Their motto is
+                    even "eat fresh."
+                    <img
+                        style="
+                            position: relative;
+                            left: 20%;
+                            bottom: 25px;
+                            width: 20%;
+                        "
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Subway_Eat_Fresh_Logo.svg/1200px-Subway_Eat_Fresh_Logo.svg.png"
+                        alt="Subway Logo"
+                    /><br />This is done in order to create a health halo around
+                    their food. The effect of this health halo is that people
+                    believe that Subway's food is much healthier than it
+                    actually is. An article from <em>The Guardian</em> describes
+                    a study that showed that people eating at Subway
+                    underestimated the amount of calories in their food "by an
+                    average of 151 calories," much more than people eating at
+                    McDonalds (Peloza and Montford 2).
+                </p>
+                <h3 style="color: darkblue">
+                    <br />How do companies create health halos?
+                </h3>
+                <p>
+                  There are many ways that fast food restaurants trick consumers.  Here are some of them:
+                  <h4>
+                    <strong><br/>All Natural</strong>
+                  </h4>
+                  <p>
+                    When restaurants call their food all natural, it doesn't mean anything.  "All natural" is extremely misleading and has no concrete definition.  
+                    Many people believe that all natural food is healthier, but in reality it doesn't make a difference.
+                  </p>
+                  <h4>
+                    <strong><br/>No Added Hormones</strong>
+                  </h4>
+                  <p>
+                    It is illegal in the United States to give poultry hormones.
+                  </p>
+                  <h4>
+                    <strong><br/>Fresh and Artisan</strong>
+                  </h4>
+                  <p>
+                    When foods are called fresh or artisan, people believe they are healthier.  They aren't necessarily.
+                  </p>
+                  <h4>
+                    <strong><br/>Crispy</strong>
+                  </h4>
+                  <p>
+                    The word "fried" has a very bad connotation in the United States, so fast food restaurants call their fried food "crispy."
+                  </p>
+                  <h4>
+                    <strong><br/>Plant-based</strong>
+                  </h4>
+                  <p>
+                    Many fast food restaurants have been making extremely processed plant-based 
+                    burgers and then giving customers the impression that these burgers are healthy.  
+                    However, many of these are just as unhealthy as the real burger, even though they are vegetarian.  
+                    <strong>Not every plant-based burger is healthier than a regular burger.</strong>
+                  </p>
+                  <h4>
+                    <strong><br/>Colors</strong>
+                  </h4>
+                  <p>
+                    Many fast food restaurants use colors to influence customers.
+                    <ol>
+                      <li><strong>Yellow: </strong>According to an article by Insider, "Yellow has long been associated with feelings of 
+                        contentment, happiness, competence, and comfort" (Uley 1).  </li>
+                      <li><strong>Red: </strong>Red establishes desire and triggers hunger.</li>
+                      <li><strong>Green: </strong>Fast food restaurants use the color green because green is associated with health.  Subway is one of those restaurants.</li>
+                    </ol>
+                    <p>
+                      An example of a company that uses colors is McDonalds.  McDonalds uses red and yellow in their logo so that
+                      people feel a sense of happiness when they see the yellow arches and want to eat at the restaurant.  The pairing of
+                      red and yellow is known as the "Ketchup and Mustard Theory" and influences people to stop to get food (Uley 2).
+                      Red and yellow is the most common pairing of colors in fast food logos.
+                    </p>
+                  </p>
+                </p>
+                <h2 style="color: darkblue; text-align: center; margin: 0">
+                  <br />How are people affected by health halos in fast food?
+                </h2>
+                <p>
+                  The health halo effect makes people comfortable with eating more food because they feel less guilty eating foods 
+                  they believe are healthier than they actually are.  Health halos are very misleading and make people less aware
+                  of how many calories are in food.  According to an article published by Oxford Academic, when fast food restaurants 
+                  claim to be healthy, people are more likely to underestimate the amount of calories in their food.  This then causes
+                  them to choose sides, drinks, or desserts with a large amount of calories (Chandon and Wansink 1).  Health halos make
+                  it much more difficult for people to eat healthily because they are so deceptive.
+                </p>
+                <h2 style="color: darkblue; text-align: center; margin: 0">
+                  <br />How can people cause a change?
+                </h2>
+                <p>
+                  It is very important to be aware of health halos and not let them affect you.  People should become familiar with
+                  the methods that fast food restauranats use to trick consumers.  In addition, people should create social media accounts
+                  in which they expose health halos in fast food.  For example, they could take a picture of Wendy's apple pecan salad and write
+                  that it has more calories than a Big Mac.  These things could help immunize people to health halos in fast food and allow 
+                  them to make healthy and informed decisions about their eating.
+                </p>
+            </section>
+        </div>
+        <div class="push"></div>
+        <footer>
+            <p class="footer">By Evan Merzon</p>
+        </footer>
+        
+    </body>
 </html>
